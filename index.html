@@ -1,592 +1,486 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy New Year 2026! 🎉</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-            color: #fff;
-            min-height: 100vh;
-            overflow-x: hidden;
-            position: relative;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            text-align: center;
-            position: relative;
-            z-index: 10;
-        }
-        
-        header {
-            padding: 40px 20px;
-            position: relative;
-        }
-        
-        .personal-greeting {
-            font-size: 2.8rem;
-            margin-bottom: 15px;
-            color: #ffd700;
-            text-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-        
-        .year-text {
-            font-size: 6rem;
-            font-weight: 900;
-            background: linear-gradient(to right, #ffd700, #ff8c00, #ff1493);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            margin: 10px 0;
-            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            letter-spacing: 5px;
-        }
-        
-        .subtitle {
-            font-size: 1.8rem;
-            margin-bottom: 40px;
-            color: #a8e6cf;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .countdown-container {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 30px;
-            max-width: 800px;
-            margin: 40px auto;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .countdown-title {
-            font-size: 1.8rem;
-            margin-bottom: 25px;
-            color: #ffd700;
-        }
-        
-        .countdown {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        
-        .countdown-item {
-            background: rgba(0, 0, 0, 0.4);
-            border-radius: 15px;
-            padding: 20px 15px;
-            min-width: 120px;
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(255, 215, 0, 0.3);
-        }
-        
-        .countdown-value {
-            font-size: 3.5rem;
-            font-weight: 800;
-            color: #ffd700;
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
-        }
-        
-        .countdown-label {
-            font-size: 1.2rem;
-            margin-top: 10px;
-            color: #a8e6cf;
-        }
-        
-        .message-section {
-            background: rgba(255, 255, 255, 0.08);
-            border-radius: 20px;
-            padding: 30px;
-            max-width: 900px;
-            margin: 40px auto;
-            text-align: left;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .message-section::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 10px;
-            height: 100%;
-            background: linear-gradient(to bottom, #ff1493, #ffd700);
-        }
-        
-        .message-title {
-            color: #ffd700;
-            font-size: 2rem;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .message-content {
-            font-size: 1.3rem;
-            line-height: 1.6;
-            color: #e6f7ff;
-        }
-        
-        .interactive-section {
-            margin: 50px 0;
-        }
-        
-        .wish-button {
-            background: linear-gradient(to right, #ff1493, #ff8c00);
-            border: none;
-            color: white;
-            font-size: 1.4rem;
-            padding: 18px 40px;
-            border-radius: 50px;
-            cursor: pointer;
-            margin: 20px;
-            transition: all 0.3s;
-            box-shadow: 0 5px 15px rgba(255, 20, 147, 0.4);
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .wish-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(255, 20, 147, 0.6);
-        }
-        
-        .fireworks-btn {
-            background: linear-gradient(to right, #00b4db, #0083b0);
-            box-shadow: 0 5px 15px rgba(0, 180, 219, 0.4);
-        }
-        
-        .fireworks-btn:hover {
-            box-shadow: 0 10px 20px rgba(0, 180, 219, 0.6);
-        }
-        
-        .resolution-section {
-            background: rgba(255, 255, 255, 0.08);
-            border-radius: 20px;
-            padding: 30px;
-            max-width: 900px;
-            margin: 40px auto;
-        }
-        
-        .resolution-title {
-            color: #ffd700;
-            font-size: 2rem;
-            margin-bottom: 25px;
-        }
-        
-        .resolution-text {
-            font-size: 1.3rem;
-            line-height: 1.6;
-            color: #e6f7ff;
-            margin-bottom: 20px;
-        }
-        
-        .celebration-icons {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 30px;
-            margin: 40px 0;
-            font-size: 2.5rem;
-            color: #ffd700;
-        }
-        
-        footer {
-            margin-top: 60px;
-            padding: 30px;
-            color: #a8e6cf;
-            font-size: 1.1rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .confetti {
-            position: fixed;
-            width: 15px;
-            height: 15px;
-            background-color: #f00;
-            opacity: 0;
-            z-index: 1;
-        }
-        
-        .firework {
-            position: absolute;
-            width: 5px;
-            height: 5px;
-            border-radius: 50%;
-            z-index: 1;
-        }
-        
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            z-index: 100;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .modal-content {
-            background: linear-gradient(135deg, #1a1a2e, #16213e);
-            padding: 40px;
-            border-radius: 20px;
-            max-width: 500px;
-            width: 90%;
-            text-align: center;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
-            border: 2px solid #ffd700;
-            position: relative;
-        }
-        
-        .modal h2 {
-            color: #ffd700;
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-        
-        .modal p {
-            font-size: 1.4rem;
-            line-height: 1.6;
-            color: #fff;
-            margin-bottom: 30px;
-        }
-        
-        .close-modal {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 2rem;
-            color: #ffd700;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-        
-        .close-modal:hover {
-            transform: rotate(90deg);
-        }
-        
-        @media (max-width: 768px) {
-            .personal-greeting {
-                font-size: 2rem;
-            }
-            
-            .year-text {
-                font-size: 4rem;
-            }
-            
-            .countdown-item {
-                min-width: 90px;
-                padding: 15px 10px;
-            }
-            
-            .countdown-value {
-                font-size: 2.5rem;
-            }
-            
-            .message-content, .resolution-text {
-                font-size: 1.1rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>another way · my heart for you</title>
+  <!-- Fonts & Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+  <!-- confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background: radial-gradient(circle at 30% 30%, #f2e0ff, #d9d0ff 80%);
+      font-family: 'Montserrat', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* soft floating stars (css only) */
+    body::before, body::after {
+      content: "✦";
+      position: absolute;
+      color: rgba(255, 240, 250, 0.6);
+      font-size: 2.2rem;
+      text-shadow: 0 0 10px #f0b0ff;
+      animation: shine 5s infinite alternate;
+    }
+    body::before {
+      top: 8%;
+      left: 12%;
+      transform: rotate(-10deg);
+    }
+    body::after {
+      bottom: 12%;
+      right: 10%;
+      font-size: 3rem;
+      animation: shine 7s infinite alternate-reverse;
+    }
+    @keyframes shine {
+      0% { opacity: 0.2; transform: scale(1); }
+      100% { opacity: 0.8; transform: scale(1.2); }
+    }
+
+    .container {
+      width: 100%;
+      max-width: 950px;
+      background: rgba(255, 250, 255, 0.5);
+      backdrop-filter: blur(12px);
+      border-radius: 50px 20px 50px 20px;
+      box-shadow: 0 30px 45px rgba(120, 80, 150, 0.3), 0 0 0 2px #fff8 inset, 0 0 0 3px #f6d5ff inset;
+      padding: 2rem 1.8rem;
+      transition: all 0.3s;
+      border: 2px solid #ffffffb3;
+    }
+
+    /* LOCKED SURPRISE (initial view) */
+    .lock-cover {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      cursor: pointer;
+      transition: opacity 0.4s, transform 0.2s;
+      padding: 2.5rem 1rem;
+    }
+    .lock-cover:hover {
+      transform: scale(1.02);
+    }
+    .lock-icon {
+      font-size: 9rem;
+      color: #aa6dc9;
+      filter: drop-shadow(0 15px 15px #b385d9);
+      animation: gentle-swing 3s infinite ease-in-out;
+      margin-bottom: 1rem;
+    }
+    @keyframes gentle-swing {
+      0% { transform: rotate(0deg); }
+      25% { transform: rotate(5deg); }
+      50% { transform: rotate(-5deg); }
+      100% { transform: rotate(0deg); }
+    }
+    .lock-cover h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 4rem;
+      background: linear-gradient(135deg, #7d3f9e, #b4569c);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 2px 2px 10px #f1c6ff;
+      letter-spacing: 2px;
+      margin: 0.3rem 0;
+    }
+    .lock-cover p {
+      font-size: 1.7rem;
+      color: #59367c;
+      background: rgba(255, 235, 255, 0.7);
+      padding: 0.3rem 2.5rem;
+      border-radius: 60px;
+      font-weight: 300;
+      backdrop-filter: blur(2px);
+      border: 1px solid #dbbaff;
+    }
+
+    /* CAROUSEL (hidden at first) */
+    .carousel-container {
+      display: none;  /* hidden until lock is clicked */
+      opacity: 0;
+      transition: opacity 0.8s ease;
+    }
+    .carousel-container.show {
+      display: block;
+      opacity: 1;
+    }
+
+    .carousel-title {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3.5rem;
+      text-align: center;
+      color: #672b86;
+      margin: 0 0 0.2rem;
+      text-shadow: 0 2px 5px #f1d2ff;
+    }
+    .carousel-sub {
+      text-align: center;
+      font-size: 1.2rem;
+      color: #7d5096;
+      margin-bottom: 2rem;
+      font-weight: 300;
+      letter-spacing: 1px;
+    }
+
+    /* main carousel card */
+    .carousel-card {
+      background: rgba(255, 245, 255, 0.8);
+      backdrop-filter: blur(4px);
+      border-radius: 40px 16px 40px 16px;
+      padding: 2rem 1rem 1.5rem;
+      box-shadow: 0 25px 40px -8px #8f67b1, 0 0 0 3px #fef7ff inset;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+
+    .image-frame {
+      width: 90%;
+      margin: 0 auto 1.2rem;
+      border-radius: 30px 10px 30px 10px;
+      overflow: hidden;
+      aspect-ratio: 1 / 1;
+      border: 6px solid white;
+      box-shadow: 0 15px 25px #b592cb;
+      background: #f7e8ff;  /* soft background for contain mode */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .image-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;     /* ⬅️ ensures full face / whole image is visible */
+      display: block;
+      transition: transform 0.4s;
+      background: #f7e8ff;      /* matches frame background */
+    }
+    .image-frame img:hover {
+      transform: scale(1.03);   /* subtle zoom, still safe for face */
+    }
+
+    .carousel-caption {
+      font-size: 1.8rem;
+      font-family: 'Great Vibes', cursive;
+      color: #4d2a63;
+      background: #fff0fd;
+      padding: 0.4rem 1.5rem;
+      border-radius: 60px;
+      display: inline-block;
+      margin: 0.5rem 0 1rem;
+      box-shadow: 0 5px 0 #bb92cf;
+    }
+
+    /* navigation */
+    .carousel-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      margin: 1.8rem 0 1rem;
+    }
+    .nav-btn {
+      background: #b689d1;
+      border: none;
+      color: white;
+      font-size: 2.2rem;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 8px 0 #6f4a8b, 0 5px 15px #e1baf7;
+      transition: 0.08s linear;
+      border: 2px solid #fff2fc;
+    }
+    .nav-btn:active {
+      transform: translateY(6px);
+      box-shadow: 0 2px 0 #6f4a8b, 0 5px 12px #d3a6f0;
+    }
+    .nav-btn:disabled {
+      opacity: 0.4;
+      transform: translateY(4px);
+      box-shadow: 0 4px 0 #6f4a8b;
+      pointer-events: none;
+    }
+
+    .indicators {
+      display: flex;
+      justify-content: center;
+      gap: 0.7rem;
+      margin-top: 1rem;
+    }
+    .dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #d9b6f0;
+      border: 2px solid white;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .dot.active {
+      background: #a13fc0;
+      transform: scale(1.3);
+      box-shadow: 0 0 12px #c87eff;
+    }
+
+    .back-to-lock {
+      background: none;
+      border: 2px dashed #9d74b3;
+      color: #663f81;
+      font-size: 1.3rem;
+      padding: 0.6rem 2rem;
+      border-radius: 60px;
+      cursor: pointer;
+      margin: 2rem auto 1rem;
+      display: block;
+      font-weight: 500;
+      transition: 0.2s;
+      backdrop-filter: blur(4px);
+    }
+    .back-to-lock:hover {
+      background: #eed5ff;
+      border: 2px solid #b085cf;
+      transform: scale(1.02);
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    /* tiny romantic footer */
+    .foot-note {
+      text-align: center;
+      font-size: 1.1rem;
+      color: #7e58a0;
+      font-weight: 300;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1 class="personal-greeting">Happy New Year 2026, My Dear! 🎊</h1>
-            <div class="year-text">2026</div>
-            <p class="subtitle">Wishing you a year filled with joy, success, beautiful moments, and dreams coming true! ✨</p>
-        </header>
-        
-        <div class="countdown-container">
-            <h2 class="countdown-title">Countdown to New Year 2026</h2>
-            <div class="countdown">
-                <div class="countdown-item">
-                    <div class="countdown-value" id="days">00</div>
-                    <div class="countdown-label">Days</div>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-value" id="hours">00</div>
-                    <div class="countdown-label">Hours</div>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-value" id="minutes">00</div>
-                    <div class="countdown-label">Minutes</div>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-value" id="seconds">00</div>
-                    <div class="countdown-label">Seconds</div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="message-section">
-            <h2 class="message-title"><i class="fas fa-heart"></i> A Special Message for You</h2>
-            <div class="message-content">
-                <p>With 2026 beginning, I just wanted to say that it’s been really nice getting to know you 🙂
-I hope this year brings you happiness, confidence, and success in everything you do.</p>
-                <p>May all your efforts turn into achievements and your days be filled with positivity.</p>
-                <p>Wishing you a fresh start and a beautiful journey ahead ✨🥂 🥂</p>
-            </div>
-        </div>
-        
-        <div class="celebration-icons">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-gift"></i>
-            <i class="fas fa-champagne-glasses"></i>
-            <i class="fas fa-music"></i>
-            <i class="fas fa-crown"></i>
-        </div>
-        
-        <div class="interactive-section">
-            <button class="wish-button" id="wishBtn">
-                <i class="fas fa-sparkles"></i> Get Your New Year Wish
-            </button>
-            <button class="wish-button fireworks-btn" id="fireworksBtn">
-                <i class="fas fa-fire"></i> Launch Fireworks
-            </button>
-        </div>
-        
-        <div class="resolution-section">
-            <h2 class="resolution-title">New Year Resolution Ideas for 2026</h2>
-            <p class="resolution-text">🌟 <strong>Embrace self-care</strong> - Make time for activities that recharge your mind and soul.</p>
-            <p class="resolution-text">📚 <strong>Learn something new</strong> - A skill, language, or hobby that excites you.</p>
-            <p class="resolution-text">🌍 <strong>Travel more</strong> - Explore new places and create unforgettable memories.</p>
-            <p class="resolution-text">💖 <strong>Nurture relationships</strong> - Cherish the people who matter most in your life.</p>
-            <p class="resolution-text">🎯 <strong>Set bold goals</strong> - Dream big and take steps toward your aspirations every day.</p>
-        </div>
-        
-       
-    </div>
-    
-    <!-- Modal for New Year Wish -->
-    <div class="modal" id="wishModal">
-        <div class="modal-content">
-            <span class="close-modal" id="closeModal">&times;</span>
-            <h2>Your Special Wish for 2026! 💫</h2>
-            <p id="dynamicWish">May 2026 be the year all your dreams take flight, your heart finds its rhythm in joy, and every day brings you closer to the wonderful person you're meant to be. You've got this, and I'll be here cheering for you every step of the way!</p>
-            <div style="margin-top:30px; font-size:3rem; color:#ffd700;">🎉✨</div>
-        </div>
+  <div class="container">
+    <!-- LOCK / SURPRISE TRIGGER -->
+    <div id="lockCover" class="lock-cover">
+      <i class="fas fa-heart lock-icon"></i>
+      <h2>my love, a secret</h2>
+      <p>🔐 tap the heart to unlock 🔐</p>
     </div>
 
-    <script>
-        // Countdown to New Year 2026
-        function updateCountdown() {
-            const now = new Date();
-            const newYear = new Date(now.getFullYear() + 1, 0, 1); // January 1 of next year
-            
-            // For testing: Uncomment the line below to set newYear to 2026 specifically
-            // const newYear = new Date(2026, 0, 1);
-            
-            const timeDiff = newYear - now;
-            
-            const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
-            
-            document.getElementById('days').textContent = days.toString().padStart(2, '0');
-            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+    <!-- CAROUSEL (hidden initially) -->
+    <div id="carouselContainer" class="carousel-container">
+      <div class="carousel-title">our story in pictures</div>
+      <div class="carousel-sub"> ✨ every moment with you is magic ✨</div>
+
+      <div class="carousel-card">
+        <div class="image-frame" id="carouselImageFrame">
+          <img id="carouselImg" src="" alt="us">
+        </div>
+        <div class="carousel-caption" id="carouselCaption"></div>
+
+        <!-- prev/next -->
+        <div class="carousel-controls">
+          <button class="nav-btn" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+          <button class="nav-btn" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        <!-- dots -->
+        <div class="indicators" id="dotContainer"></div>
+      </div>
+
+      <button class="back-to-lock" id="backToLockBtn"><i class="fas fa-lock"></i> close & back to heart</button>
+      <div class="foot-note">
+        <i class="fas fa-heart" style="color: #be79df;"></i> my favorite view is you <i class="fas fa-heart" style="color: #be79df;"></i>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      // ---------- GIRLFRIEND'S IMAGES (replace with your own) ----------
+      // Use images where her face is clearly visible — the frame now shows the whole picture.
+      const images = [
+        {
+          url: "92804.jpg",
+          caption: "💐 the first time you smiled like this"
+        },
+        {
+          url: "https://images.unsplash.com/photo-1518621736915-f3b1c41bfd00?w=600&h=600&fit=crop&auto=format",
+          caption: "🌅 sunset walk, hand in hand"
+        },
+        {
+          url: "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=600&h=600&fit=crop&auto=format",
+          caption: "☕ coffee dates & endless talks"
+        },
+        {
+          url: "secondimage.jpeg",
+          caption: "💞 that day you stole my heart"
+        },
+       
+        {
+          url: "92804.jpg",
+          caption: "🏖️ our little getaway"
         }
-        
-        // Initial call and set interval
-        updateCountdown();
-        setInterval(updateCountdown, 1000);
-        
-        // Confetti effect
-        function createConfetti() {
-            const colors = ['#ffd700', '#ff1493', '#00b4db', '#a8e6cf', '#ff8c00'];
-            const confettiCount = 150;
-            
-            for (let i = 0; i < confettiCount; i++) {
-                const confetti = document.createElement('div');
-                confetti.className = 'confetti';
-                confetti.style.left = Math.random() * 100 + 'vw';
-                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-                confetti.style.width = Math.random() * 15 + 5 + 'px';
-                confetti.style.height = Math.random() * 15 + 5 + 'px';
-                confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
-                document.body.appendChild(confetti);
-                
-                // Animation
-                const animation = confetti.animate([
-                    { transform: 'translateY(0) rotate(0deg)', opacity: 1 },
-                    { transform: `translateY(${window.innerHeight}px) rotate(${Math.random() * 360}deg)`, opacity: 0 }
-                ], {
-                    duration: Math.random() * 3000 + 2000,
-                    easing: 'cubic-bezier(0.215, 0.610, 0.355, 1)'
-                });
-                
-                // Remove confetti after animation
-                animation.onfinish = () => confetti.remove();
-            }
+      ];
+
+      // DOM elements
+      const lockCover = document.getElementById('lockCover');
+      const carouselContainer = document.getElementById('carouselContainer');
+      const carouselImg = document.getElementById('carouselImg');
+      const carouselCaption = document.getElementById('carouselCaption');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      const dotContainer = document.getElementById('dotContainer');
+      const backToLockBtn = document.getElementById('backToLockBtn');
+
+      let currentIndex = 0;
+
+      // ---------- helper: update carousel view ----------
+      function updateCarousel(index) {
+        if (!images.length) return;
+        // wrap index
+        if (index < 0) index = images.length - 1;
+        if (index >= images.length) index = 0;
+        currentIndex = index;
+
+        const item = images[currentIndex];
+        carouselImg.src = item.url;
+        carouselImg.alt = item.caption;
+        carouselCaption.textContent = item.caption;
+
+        // update dots
+        const dots = document.querySelectorAll('.dot');
+        dots.forEach((dot, i) => {
+          if (i === currentIndex) dot.classList.add('active');
+          else dot.classList.remove('active');
+        });
+
+        // disable prev/next if only one image (optional)
+        if (images.length <= 1) {
+          prevBtn.disabled = true;
+          nextBtn.disabled = true;
+        } else {
+          prevBtn.disabled = false;
+          nextBtn.disabled = false;
         }
-        
-        // Fireworks effect
-        function createFireworks() {
-            const colors = ['#ffd700', '#ff1493', '#00b4db', '#a8e6cf'];
-            const fireworkCount = 5;
-            
-            for (let i = 0; i < fireworkCount; i++) {
-                // Create firework origin
-                const originX = Math.random() * 80 + 10; // 10% to 90%
-                const originY = Math.random() * 60 + 20; // 20% to 80%
-                
-                // Create particles for each firework
-                const particleCount = 50;
-                
-                for (let j = 0; j < particleCount; j++) {
-                    const particle = document.createElement('div');
-                    particle.className = 'firework';
-                    particle.style.left = originX + '%';
-                    particle.style.top = originY + '%';
-                    particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-                    document.body.appendChild(particle);
-                    
-                    // Random angle and distance
-                    const angle = Math.random() * Math.PI * 2;
-                    const distance = Math.random() * 100 + 50;
-                    const duration = Math.random() * 1000 + 1000;
-                    
-                    // Animate particle
-                    const animation = particle.animate([
-                        { transform: 'translate(0, 0) scale(1)', opacity: 1 },
-                        { transform: `translate(${Math.cos(angle) * distance}px, ${Math.sin(angle) * distance}px) scale(0)`, opacity: 0 }
-                    ], {
-                        duration: duration,
-                        easing: 'cubic-bezier(0.165, 0.84, 0.44, 1)'
-                    });
-                    
-                    // Remove particle after animation
-                    animation.onfinish = () => particle.remove();
-                }
+      }
+
+      // ---------- create dots ----------
+      function renderDots() {
+        let dotsHtml = '';
+        images.forEach((_, idx) => {
+          dotsHtml += `<div class="dot ${idx === 0 ? 'active' : ''}" data-index="${idx}"></div>`;
+        });
+        dotContainer.innerHTML = dotsHtml;
+
+        // add click event to dots
+        document.querySelectorAll('.dot').forEach(dot => {
+          dot.addEventListener('click', (e) => {
+            const index = parseInt(e.target.dataset.index, 10);
+            if (!isNaN(index)) {
+              updateCarousel(index);
             }
-        }
-        
-        // Modal functionality
-        const wishModal = document.getElementById('wishModal');
-        const wishBtn = document.getElementById('wishBtn');
-        const closeModal = document.getElementById('closeModal');
-        const fireworksBtn = document.getElementById('fireworksBtn');
-        const dynamicWish = document.getElementById('dynamicWish');
-        
-        // New Year wishes array
-        const newYearWishes = [
-            "May 2026 shower you with boundless joy, incredible opportunities, and dreams that know no limits. You deserve the absolute best this year and always!",
-            "Wishing you a 2026 where every morning brings new hopes, every day brings new achievements, and every night brings peaceful rest. You're going to accomplish amazing things!",
-            "As we welcome 2026, may you be surrounded by love, fueled by passion, and guided by purpose. This is your year to shine brighter than ever before!",
-            "Here's to a year of laughter that echoes, friendships that strengthen, and moments that take your breath away. May 2026 be your most memorable chapter yet!",
-            "May the coming year wrap you in comfort during challenges, surprise you with joy in ordinary moments, and lead you to adventures beyond your imagination. You're unstoppable!"
-        ];
-        
-        // Open modal with a random wish
-        wishBtn.addEventListener('click', () => {
-            const randomWish = newYearWishes[Math.floor(Math.random() * newYearWishes.length)];
-            dynamicWish.textContent = randomWish;
-            wishModal.style.display = 'flex';
-            createConfetti();
+          });
         });
-        
-        // Close modal
-        closeModal.addEventListener('click', () => {
-            wishModal.style.display = 'none';
+      }
+
+      // ---------- prev/next listeners ----------
+      prevBtn.addEventListener('click', () => {
+        updateCarousel(currentIndex - 1);
+      });
+      nextBtn.addEventListener('click', () => {
+        updateCarousel(currentIndex + 1);
+      });
+
+      // ---------- unlock surprise! (click lock) ----------
+      lockCover.addEventListener('click', function() {
+        // hide lock cover with smooth fade
+        lockCover.style.opacity = '0';
+        lockCover.style.pointerEvents = 'none';
+        setTimeout(() => {
+          lockCover.style.display = 'none';
+        }, 300);
+
+        // show carousel
+        carouselContainer.classList.add('show');
+
+        // initialize carousel (first time)
+        renderDots();
+        updateCarousel(0);
+
+        // confetti burst (surprise!)
+        confetti({
+          particleCount: 130,
+          spread: 70,
+          origin: { y: 0.6 },
+          colors: ['#cb9eff', '#f2c1ff', '#ffffff', '#c98cff', '#b463e0']
         });
-        
-        // Close modal when clicking outside
-        window.addEventListener('click', (e) => {
-            if (e.target === wishModal) {
-                wishModal.style.display = 'none';
-            }
-        });
-        
-        // Fireworks button
-        fireworksBtn.addEventListener('click', () => {
-            createFireworks();
-            createConfetti();
-            
-            // Play fireworks sound if available
-            try {
-                const audio = new Audio('happ.mp3');
-                audio.volume = 1;
-                audio.play();
-            } catch (e) {
-                console.log("Audio play failed or not supported");
-            }
-        });
-        
-        // Create initial confetti on load
-        window.addEventListener('load', () => {
-            setTimeout(createConfetti, 500);
-            setTimeout(createConfetti, 1500);
-        });
-        
-        // Add some random floating stars in the background
-        function createFloatingStars() {
-            const starCount = 30;
-            
-            for (let i = 0; i < starCount; i++) {
-                const star = document.createElement('div');
-                star.innerHTML = '✦';
-                star.style.position = 'fixed';
-                star.style.color = 'rgba(255, 215, 0, 0.7)';
-                star.style.fontSize = Math.random() * 20 + 10 + 'px';
-                star.style.left = Math.random() * 100 + 'vw';
-                star.style.top = Math.random() * 100 + 'vh';
-                star.style.zIndex = '0';
-                star.style.opacity = '0';
-                document.body.appendChild(star);
-                
-                // Animate star
-                const duration = Math.random() * 20000 + 10000;
-                const delay = Math.random() * 5000;
-                
-                star.animate([
-                    { transform: 'translateY(0) rotate(0deg)', opacity: 0 },
-                    { transform: 'translateY(0) rotate(0deg)', opacity: 0.8, offset: 0.1 },
-                    { transform: `translateY(${Math.random() * -100 - 50}px) rotate(${Math.random() * 360}deg)`, opacity: 0 }
-                ], {
-                    duration: duration,
-                    delay: delay,
-                    easing: 'ease-in-out',
-                    iterations: Infinity
-                });
-            }
-        }
-        
-        // Create floating stars
-        createFloatingStars();
-    </script>
+        setTimeout(() => {
+          confetti({
+            particleCount: 80,
+            spread: 120,
+            origin: { y: 0.5, x: 0.3 },
+            colors: ['#e5b2ff', '#fbe5ff']
+          });
+          confetti({
+            particleCount: 80,
+            spread: 120,
+            origin: { y: 0.5, x: 0.7 },
+            colors: ['#e5b2ff', '#fbe5ff']
+          });
+        }, 180);
+      });
+
+      // ---------- back to lock ----------
+      backToLockBtn.addEventListener('click', function() {
+        carouselContainer.classList.remove('show');
+        lockCover.style.display = 'flex';
+        setTimeout(() => {
+          lockCover.style.opacity = '1';
+          lockCover.style.pointerEvents = 'auto';
+        }, 20);
+      });
+
+      // optional: additional floating stars (js-made)
+      function createStar() {
+        const star = document.createElement('div');
+        star.innerHTML = '✨';
+        star.style.position = 'absolute';
+        star.style.left = Math.random() * 100 + '%';
+        star.style.top = Math.random() * 100 + '%';
+        star.style.fontSize = (Math.random() * 2 + 1) + 'rem';
+        star.style.opacity = '0.3';
+        star.style.pointerEvents = 'none';
+        star.style.zIndex = '0';
+        star.style.animation = `shine ${Math.random() * 6 + 4}s infinite alternate`;
+        document.body.appendChild(star);
+        setTimeout(() => star.remove(), 10000);
+      }
+      for (let i = 0; i < 8; i++) {
+        setTimeout(createStar, i * 700);
+      }
+      setInterval(createStar, 5000);
+    })();
+  </script>
 </body>
 </html>
