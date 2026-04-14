@@ -1,183 +1,253 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>For My Friend ❤️</title>
-<style>
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(120deg, #ff9a9e, #fad0c4);
-    overflow: hidden;
-  }
-  .shayari-box {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(12px);
-    padding: 30px;
-    border-radius: 20px;
-    text-align: center;
-    max-width: 90%;
-    animation: fadeIn 2s ease-in-out;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Priya 💖</title>
 
-  .shayari-box h2 {
-    color: #090909;
-    font-size: 22px;
-    line-height: 1.5;
-  }
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
 
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
+    body{
+      min-height:100vh;
+      background: linear-gradient(135deg,#ff9a9e,#fad0c4,#a18cd1);
+      overflow-x:hidden;
+    }
 
-  .floating-img {
-    position: absolute;
-    width: 110px;
-    border-radius: 15px;
-    opacity: 0.9;
-    animation-timing-function: linear;
-    transition: transform 0.4s ease;
-  }
+    header{
+      text-align:center;
+      padding:30px 20px;
+      color:#fff;
+    }
 
-  .floating-img:active {
-    transform: scale(1.4) rotate(20deg);
-  }
+    header h1{
+      font-size:2.4rem;
+      text-shadow:0 5px 15px rgba(0,0,0,0.3);
+    }
 
-  @keyframes floatUp {
-    from { transform: translateY(100vh) rotate(0deg); }
-    to { transform: translateY(-150vh) rotate(360deg); }
-  }
+    header p{
+      margin-top:10px;
+      opacity:0.9;
+    }
 
-  @keyframes floatSide {
-    from { transform: translateX(-200px) translateY(100vh); }
-    to { transform: translateX(200px) translateY(-150vh); }
-  }
+    /* MUSIC BUTTON */
+    .music-btn{
+      display:block;
+      margin:10px auto;
+      padding:10px 20px;
+      border:none;
+      border-radius:10px;
+      cursor:pointer;
+      background:#ff4d6d;
+      color:white;
+      font-weight:bold;
+    }
 
-  @media (max-width: 600px) {
-    .shayari-box h2 { font-size: 18px; }
-    .floating-img { width: 80px; }
-  }
-@keyframes heartFloat {
-  from { opacity:1; transform:translateY(0) scale(1); }
-  to { opacity:0; transform:translateY(-80px) scale(1.8); }
-}
-</style>
+    /* SLIDER FIXED PROPER FULL IMAGE */
+    .slider{
+      width:90%;
+      max-width:900px;
+      height:400px;
+      margin:20px auto;
+      overflow:hidden;
+      border-radius:20px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.3);
+      position:relative;
+    }
+
+    .slides{
+      display:flex;
+      height:100%;
+      transition:transform 0.8s ease-in-out;
+    }
+
+    .slides img{
+      flex:0 0 100%;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    /* GALLERY */
+    .gallery{
+      column-count:3;
+      column-gap:15px;
+      width:90%;
+      max-width:1000px;
+      margin:40px auto;
+    }
+
+    @media(max-width:768px){
+      .gallery{column-count:2;}
+    }
+
+    @media(max-width:500px){
+      .gallery{column-count:1;}
+    }
+
+    .gallery img{
+      width:100%;
+      margin-bottom:15px;
+      border-radius:15px;
+      cursor:pointer;
+      transition:0.4s;
+      box-shadow:0 8px 20px rgba(0,0,0,0.25);
+    }
+
+    .gallery img:hover{
+      transform:scale(1.05);
+    }
+
+    /* LIGHTBOX */
+    .lightbox{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background:rgba(0,0,0,0.9);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index:999;
+    }
+
+    .lightbox img{
+      max-width:90%;
+      max-height:90%;
+      border-radius:15px;
+    }
+
+    /* HEARTS */
+    .heart{
+      position:fixed;
+      color:red;
+      font-size:20px;
+      animation:fall 5s linear infinite;
+      top:-10px;
+    }
+
+    @keyframes fall{
+      0%{transform:translateY(0) rotate(0deg);opacity:1;}
+      100%{transform:translateY(100vh) rotate(360deg);opacity:0;}
+    }
+
+    /* SURPRISE */
+    .surprise{
+      text-align:center;
+      margin:20px;
+    }
+
+    .surprise button{
+      padding:10px 20px;
+      border:none;
+      border-radius:10px;
+      background:#ff4d6d;
+      color:white;
+      cursor:pointer;
+      font-weight:bold;
+    }
+
+    .hidden-msg{
+      display:none;
+      margin-top:10px;
+      color:white;
+      font-size:1.2rem;
+    }
+
+  </style>
 </head>
 <body>
 
-<div id="welcomeScreen" style="position:fixed;inset:0;background:linear-gradient(120deg,#ff9a9e,#fad0c4);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:2000;">
-  <h1 style="color:#fff;font-size:26px;margin-bottom:20px;">Welcome ❤️</h1>
-  <button id="startBtn" style="padding:12px 24px;border:none;border-radius:30px;background:#fff;color:#ff4d6d;font-size:18px;cursor:pointer;">Start</button>
-</div>
+<header>
+  <h1>💖 A Special Surprise For Priya 💖</h1>
+  <p>Every memory is a heartbeat of love ✨</p>
+</header>
 
-<audio id="bgMusic" loop>
-  <source src="a1.mp3" type="audio/mpeg">
+<!-- MUSIC -->
+<audio id="music" loop>
+  <source src="a11.mp3" type="audio/mp3">
 </audio>
+<button class="music-btn" onclick="toggleMusic()">🎵 Play / Pause Music</button>
 
-<div id="musicControl" style="position:fixed;bottom:20px;right:20px;width:60px;height:60px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 10px rgba(0,0,0,0.3);cursor:pointer;z-index:1000;">
-  🎵
+<!-- SLIDER -->
+<div class="slider">
+  <div class="slides" id="slides">
+    <img src="img1.jpeg" />
+    <img src="img2.jpeg" />
+    <img src="img3.jpeg" />
+  </div>
 </div>
 
-<input id="volumeSlider" type="range" min="0" max="1" step="0.01" value="1" style="position:fixed;bottom:95px;right:15px;width:90px;z-index:1000;">
+<!-- MESSAGE -->
+<div style="text-align:center;color:white;padding:20px;max-width:700px;margin:auto;">
+  Priya 💕 you are special. These memories are just for you.
+</div>
 
-<div class="shayari-box">
-  <h2>
-    अजनबी गलियों से हम गुज़रा नहीं करते,<br>
-    दर्द-ए-दिल लिया और दिया नहीं करते,<br>
-    ये प्यारा सा रिश्ता सिर्फ़ आप से है,<br>
-    वरना इतना याद हम किसी को किया नहीं करते ❤️
-  </h2>
+<!-- GALLERY -->
+<div class="gallery">
+  <img src="img1.jpeg" onclick="openImg(this.src)">
+  <img src="img2.jpeg" onclick="openImg(this.src)">
+  <img src="img3.jpeg" onclick="openImg(this.src)">
+  <img src="img4.jpeg" onclick="openImg(this.src)">
+  <img src="img5.jpeg" onclick="openImg(this.src)">
+</div>
+
+<!-- SURPRISE -->
+<div class="surprise">
+  <button onclick="showMsg()">💌 Open Surprise</button>
+  <div class="hidden-msg" id="msg">I am lucky to have you Priya 💖</div>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeImg()">
+  <img id="lightboxImg" />
 </div>
 
 <script>
-  const music = document.getElementById('bgMusic');
-const welcome = document.getElementById('welcomeScreen');
-const startBtn = document.getElementById('startBtn');
-const volumeSlider = document.getElementById('volumeSlider');
+  let index = 0;
+  const slides = document.getElementById("slides");
 
-startBtn.addEventListener('click', () => {
-  welcome.style.display = 'none';
-  music.play();
-});
+  setInterval(()=>{
+    index = (index + 1) % slides.children.length;
+    slides.style.transform = `translateX(-${index * 100}%)`;
+  },3000);
 
-volumeSlider.addEventListener('input', () => {
-  music.volume = volumeSlider.value;
-});
-  const musicBtn = document.getElementById('musicControl');
-
-  musicBtn.addEventListener('click', () => {
-    if (music.paused) {
-      music.play();
-      musicBtn.textContent = '⏸';
-    } else {
-      music.pause();
-      musicBtn.textContent = '🎵';
-    }
-  });
-
-  // Soft fade-in when music starts
-  music.volume = 0;
-  let fade;
-  music.addEventListener('play', () => {
-    clearInterval(fade);
-    fade = setInterval(() => {
-      if (music.volume < 1) music.volume += 0.05;
-      else clearInterval(fade);
-    }, 200);
-  });
-
-  // Replace with your own photos
-  const images = [
-    'img1.jpeg',
-    'img2.jpeg',
-    'img3.jpeg',
-    'img2.jpeg'
-  ];
-
-  function createFloatingImage() {
-    const img = document.createElement('img');
-    img.src = images[Math.floor(Math.random() * images.length)];
-    img.className = 'floating-img';
-
-    img.style.left = Math.random() * 90 + 'vw';
-    img.style.animation = Math.random() > 0.5
-      ? 'floatUp ' + (6 + Math.random() * 6) + 's linear'
-      : 'floatSide ' + (6 + Math.random() * 6) + 's linear';
-
-    img.addEventListener('touchstart', () => {
-      img.style.transform = 'scale(1.5)';
-    });
-
-    document.body.appendChild(img);
-    setTimeout(() => img.remove(), 14000);
+  const music = document.getElementById("music");
+  function toggleMusic(){
+    if(music.paused) music.play();
+    else music.pause();
   }
 
-  setInterval(createFloatingImage, 900);
+  function openImg(src){
+    document.getElementById("lightbox").style.display="flex";
+    document.getElementById("lightboxImg").src=src;
+  }
 
-// Floating hearts on tap
-function createHeart(x, y) {
-  const heart = document.createElement('div');
-  heart.textContent = '❤️';
-  heart.style.position = 'fixed';
-  heart.style.left = x + 'px';
-  heart.style.top = y + 'px';
-  heart.style.fontSize = '24px';
-  heart.style.pointerEvents = 'none';
-  heart.style.animation = 'heartFloat 1.2s ease-out forwards';
-  document.body.appendChild(heart);
-  setTimeout(() => heart.remove(), 1200);
-}
+  function closeImg(){
+    document.getElementById("lightbox").style.display="none";
+  }
 
-document.body.addEventListener('click', (e) => {
-  createHeart(e.clientX, e.clientY);
-});
+  function showMsg(){
+    document.getElementById("msg").style.display="block";
+  }
+
+  setInterval(()=>{
+    const heart=document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML="❤️";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.fontSize=Math.random()*20+10+"px";
+    document.body.appendChild(heart);
+
+    setTimeout(()=>heart.remove(),5000);
+  },300);
 </script>
 
 </body>
