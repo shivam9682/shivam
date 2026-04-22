@@ -1,254 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>For Priya 💖</title>
-
+  <meta charset="UTF-8">
+  <title>Sorry Priya ❤️</title>
   <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:Arial, sans-serif;
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to right, #ff9a9e, #fad0c4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
 
-    body{
-      min-height:100vh;
-      background: linear-gradient(135deg,#ff9a9e,#fad0c4,#a18cd1);
-      overflow-x:hidden;
+    .container {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      max-width: 400px;
     }
 
-    header{
-      text-align:center;
-      padding:30px 20px;
-      color:#fff;
+    h1 {
+      color: #ff4d6d;
     }
 
-    header h1{
-      font-size:2.4rem;
-      text-shadow:0 5px 15px rgba(0,0,0,0.3);
+    p {
+      font-size: 18px;
+      color: #333;
     }
 
-    header p{
-      margin-top:10px;
-      opacity:0.9;
+    button {
+      padding: 12px 25px;
+      margin: 10px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 16px;
     }
 
-    /* MUSIC BUTTON */
-    .music-btn{
-      display:block;
-      margin:10px auto;
-      padding:10px 20px;
-      border:none;
-      border-radius:10px;
-      cursor:pointer;
-      background:#ff4d6d;
-      color:white;
-      font-weight:bold;
+    .yes {
+      background-color: #28a745;
+      color: white;
     }
 
-    /* SLIDER FIXED PROPER FULL IMAGE */
-    .slider{
-      width:90%;
-      max-width:900px;
-      height:400px;
-      margin:20px auto;
-      overflow:hidden;
-      border-radius:20px;
-      box-shadow:0 10px 30px rgba(0,0,0,0.3);
-      position:relative;
+    .no {
+      background-color: #dc3545;
+      color: white;
+      position: relative;
     }
 
-    .slides{
-      display:flex;
-      height:100%;
-      transition:transform 0.8s ease-in-out;
+    .heart {
+      font-size: 40px;
+      animation: beat 1s infinite;
     }
 
-    .slides img{
-      flex:0 0 100%;
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
+    @keyframes beat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
     }
-
-    /* GALLERY */
-    .gallery{
-      column-count:3;
-      column-gap:15px;
-      width:90%;
-      max-width:1000px;
-      margin:40px auto;
-    }
-
-    @media(max-width:768px){
-      .gallery{column-count:2;}
-    }
-
-    @media(max-width:500px){
-      .gallery{column-count:1;}
-    }
-
-    .gallery img{
-      width:100%;
-      margin-bottom:15px;
-      border-radius:15px;
-      cursor:pointer;
-      transition:0.4s;
-      box-shadow:0 8px 20px rgba(0,0,0,0.25);
-    }
-
-    .gallery img:hover{
-      transform:scale(1.05);
-    }
-
-    /* LIGHTBOX */
-    .lightbox{
-      position:fixed;
-      top:0;
-      left:0;
-      width:100%;
-      height:100%;
-      background:rgba(0,0,0,0.9);
-      display:none;
-      align-items:center;
-      justify-content:center;
-      z-index:999;
-    }
-
-    .lightbox img{
-      max-width:90%;
-      max-height:90%;
-      border-radius:15px;
-    }
-
-    /* HEARTS */
-    .heart{
-      position:fixed;
-      color:red;
-      font-size:20px;
-      animation:fall 5s linear infinite;
-      top:-10px;
-    }
-
-    @keyframes fall{
-      0%{transform:translateY(0) rotate(0deg);opacity:1;}
-      100%{transform:translateY(100vh) rotate(360deg);opacity:0;}
-    }
-
-    /* SURPRISE */
-    .surprise{
-      text-align:center;
-      margin:20px;
-    }
-
-    .surprise button{
-      padding:10px 20px;
-      border:none;
-      border-radius:10px;
-      background:#ff4d6d;
-      color:white;
-      cursor:pointer;
-      font-weight:bold;
-    }
-
-    .hidden-msg{
-      display:none;
-      margin-top:10px;
-      color:white;
-      font-size:1.2rem;
-    }
-
   </style>
 </head>
 <body>
+  <div class="container">
+    <div class="heart">😒</div>
+    <h1>Sorry Priya</h1>
+    <p>I know I made a mistake... but you mean a lot to me. Please forgive me </p>
 
-<header>
-  <h1>💖 A Special Surprise For Priya 💖</h1>
-  <p>Every memory is a heartbeat of love ✨</p>
-</header>
-
-<!-- MUSIC -->
-<audio id="music" loop>
-  <source src="a11.mp3" type="audio/mp3">
-</audio>
-<button class="music-btn" onclick="toggleMusic()">🎵 Play / Pause Music</button>
-
-<!-- SLIDER -->
-<div class="slider">
-  <div class="slides" id="slides">
-    <img src="img1.jpeg" />
-    <img src="img2.jpeg" />
-    <img src="img3.jpeg" />
+    <button class="yes" onclick="forgive()">Forgive Me 😊</button>
+    <button class="no" onmouseover="moveButton()">Still Angry 😒</button>
   </div>
-</div>
 
-<!-- MESSAGE -->
-<div style="text-align:center;color:white;padding:20px;max-width:700px;margin:auto;">
-  Priya 💕 you are special. These memories are just for you.
-</div>
+  <script>
+    function forgive() {
+      alert("Thank you Priya  You made my day!");
+    }
 
-<!-- GALLERY -->
-<div class="gallery">
-  <img src="img1.jpeg" onclick="openImg(this.src)">
-  <img src="img2.jpeg" onclick="openImg(this.src)">
-  <img src="img3.jpeg" onclick="openImg(this.src)">
-  <img src="img4.jpeg" onclick="openImg(this.src)">
-  <img src="img5.jpeg" onclick="openImg(this.src)">
-</div>
-
-<!-- SURPRISE -->
-<div class="surprise">
-  <button onclick="showMsg()">💌 Open Surprise</button>
-  <div class="hidden-msg" id="msg">I am lucky to have you Priya 💖</div>
-</div>
-
-<!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox" onclick="closeImg()">
-  <img id="lightboxImg" />
-</div>
-
-<script>
-  let index = 0;
-  const slides = document.getElementById("slides");
-
-  setInterval(()=>{
-    index = (index + 1) % slides.children.length;
-    slides.style.transform = `translateX(-${index * 100}%)`;
-  },3000);
-
-  const music = document.getElementById("music");
-  function toggleMusic(){
-    if(music.paused) music.play();
-    else music.pause();
-  }
-
-  function openImg(src){
-    document.getElementById("lightbox").style.display="flex";
-    document.getElementById("lightboxImg").src=src;
-  }
-
-  function closeImg(){
-    document.getElementById("lightbox").style.display="none";
-  }
-
-  function showMsg(){
-    document.getElementById("msg").style.display="block";
-  }
-
-  setInterval(()=>{
-    const heart=document.createElement("div");
-    heart.classList.add("heart");
-    heart.innerHTML="❤️";
-    heart.style.left=Math.random()*100+"vw";
-    heart.style.fontSize=Math.random()*20+10+"px";
-    document.body.appendChild(heart);
-
-    setTimeout(()=>heart.remove(),5000);
-  },300);
-</script>
-
+    function moveButton() {
+      const btn = document.querySelector('.no');
+      const x = Math.random() * 200 - 100;
+      const y = Math.random() * 200 - 100;
+      btn.style.transform = `translate(${x}px, ${y}px)`;
+    }
+  </script>
 </body>
 </html>
