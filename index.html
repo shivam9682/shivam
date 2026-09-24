@@ -1,0 +1,1681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TravelGo - Flights, Hotels & Holidays</title>
+
+    <meta
+        name="description"
+        content="Book flights, hotels, buses, trains, cabs and holiday packages with TravelGo."
+    >
+
+    <link rel="stylesheet" href="index.css">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+    <div class="nav-container">
+
+        <a href="#" class="logo">
+            <span class="logo-icon">
+                <i class="fa-solid fa-plane-departure"></i>
+            </span>
+            <span>Travel<span>Go</span></span>
+        </a>
+
+        <nav class="nav-links" id="navLinks">
+
+            <a href="#flights" class="active">
+                <i class="fa-solid fa-plane"></i>
+                Flights
+            </a>
+
+            <a href="#hotels">
+                <i class="fa-solid fa-hotel"></i>
+                Hotels
+            </a>
+
+            <a href="#services">
+                <i class="fa-solid fa-bus"></i>
+                Bus
+            </a>
+
+            <a href="#services">
+                <i class="fa-solid fa-train"></i>
+                Trains
+            </a>
+
+            <a href="#packages">
+                <i class="fa-solid fa-umbrella-beach"></i>
+                Holidays
+            </a>
+
+            <a href="#offers">
+                <i class="fa-solid fa-tags"></i>
+                Offers
+            </a>
+
+        </nav>
+
+        <div class="nav-actions">
+
+            <button class="support-btn">
+                <i class="fa-solid fa-headset"></i>
+                Support
+            </button>
+
+            <button class="login-btn" id="loginBtn">
+                <i class="fa-regular fa-user"></i>
+                Login
+            </button>
+
+            <button class="menu-btn" id="menuBtn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="flights">
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+
+        <div class="hero-text">
+
+            <span class="hero-badge">
+                <i class="fa-solid fa-sparkles"></i>
+                Explore the world with us
+            </span>
+
+            <h1>
+                Your Journey,
+                <span>Our Responsibility.</span>
+            </h1>
+
+            <p>
+                Book flights, hotels, buses, trains and unforgettable
+                holiday experiences at the best prices.
+            </p>
+
+        </div>
+
+
+        <!-- ================= SEARCH BOX ================= -->
+
+        <div class="booking-card">
+
+            <!-- Trip Type -->
+
+            <div class="trip-type">
+
+                <label class="radio-option">
+                    <input
+                        type="radio"
+                        name="tripType"
+                        value="round"
+                        checked
+                    >
+                    <span></span>
+                    Round Trip
+                </label>
+
+                <label class="radio-option">
+                    <input
+                        type="radio"
+                        name="tripType"
+                        value="oneway"
+                    >
+                    <span></span>
+                    One Way
+                </label>
+
+                <label class="radio-option">
+                    <input
+                        type="radio"
+                        name="tripType"
+                        value="multi"
+                    >
+                    <span></span>
+                    Multi City
+                </label>
+
+            </div>
+
+
+            <!-- Search Row -->
+
+            <div class="search-row">
+
+                <!-- FROM -->
+
+                <div class="search-field location-field">
+
+                    <label>
+                        <i class="fa-solid fa-plane-departure"></i>
+                        FROM
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <input
+                            type="text"
+                            id="fromCity"
+                            placeholder="Delhi"
+                            value="Delhi"
+                            autocomplete="off"
+                        >
+
+                        <small id="fromCode">
+                            DEL
+                        </small>
+
+                    </div>
+
+                    <span class="airport-name" id="fromAirport">
+                        Indira Gandhi International Airport
+                    </span>
+
+                    <div
+                        class="city-suggestions"
+                        id="fromSuggestions"
+                    ></div>
+
+                </div>
+
+
+                <!-- SWAP -->
+
+                <button
+                    class="swap-btn"
+                    id="swapBtn"
+                    title="Swap cities"
+                >
+                    <i class="fa-solid fa-arrow-right-arrow-left"></i>
+                </button>
+
+
+                <!-- TO -->
+
+                <div class="search-field location-field">
+
+                    <label>
+                        <i class="fa-solid fa-plane-arrival"></i>
+                        TO
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <input
+                            type="text"
+                            id="toCity"
+                            placeholder="Mumbai"
+                            value="Mumbai"
+                            autocomplete="off"
+                        >
+
+                        <small id="toCode">
+                            BOM
+                        </small>
+
+                    </div>
+
+                    <span class="airport-name" id="toAirport">
+                        Chhatrapati Shivaji Maharaj International Airport
+                    </span>
+
+                    <div
+                        class="city-suggestions"
+                        id="toSuggestions"
+                    ></div>
+
+                </div>
+
+
+                <!-- DEPARTURE -->
+
+                <div class="search-field date-field">
+
+                    <label>
+                        <i class="fa-regular fa-calendar"></i>
+                        DEPARTURE
+                    </label>
+
+                    <input
+                        type="date"
+                        id="departureDate"
+                    >
+
+                    <span id="departureDay">
+                        Select date
+                    </span>
+
+                </div>
+
+
+                <!-- RETURN -->
+
+                <div
+                    class="search-field date-field"
+                    id="returnField"
+                >
+
+                    <label>
+                        <i class="fa-solid fa-calendar-days"></i>
+                        RETURN
+                    </label>
+
+                    <input
+                        type="date"
+                        id="returnDate"
+                    >
+
+                    <span id="returnDay">
+                        Select date
+                    </span>
+
+                </div>
+
+
+                <!-- PASSENGERS -->
+
+                <div class="search-field passenger-field">
+
+                    <label>
+                        <i class="fa-solid fa-users"></i>
+                        PASSENGERS
+                    </label>
+
+                    <button
+                        class="passenger-btn"
+                        id="passengerBtn"
+                    >
+                        <strong id="passengerCount">
+                            1
+                        </strong>
+                        Traveller
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+
+                    <span id="classText">
+                        Economy
+                    </span>
+
+
+                    <div
+                        class="passenger-dropdown"
+                        id="passengerDropdown"
+                    >
+
+                        <div class="passenger-row">
+
+                            <div>
+                                <strong>Adults</strong>
+                                <small>12+ years</small>
+                            </div>
+
+                            <div class="counter">
+
+                                <button
+                                    data-type="adult"
+                                    data-action="minus"
+                                >
+                                    −
+                                </button>
+
+                                <span id="adultCount">
+                                    1
+                                </span>
+
+                                <button
+                                    data-type="adult"
+                                    data-action="plus"
+                                >
+                                    +
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="passenger-row">
+
+                            <div>
+                                <strong>Children</strong>
+                                <small>2–11 years</small>
+                            </div>
+
+                            <div class="counter">
+
+                                <button
+                                    data-type="child"
+                                    data-action="minus"
+                                >
+                                    −
+                                </button>
+
+                                <span id="childCount">
+                                    0
+                                </span>
+
+                                <button
+                                    data-type="child"
+                                    data-action="plus"
+                                >
+                                    +
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="passenger-row">
+
+                            <div>
+                                <strong>Infants</strong>
+                                <small>Below 2 years</small>
+                            </div>
+
+                            <div class="counter">
+
+                                <button
+                                    data-type="infant"
+                                    data-action="minus"
+                                >
+                                    −
+                                </button>
+
+                                <span id="infantCount">
+                                    0
+                                </span>
+
+                                <button
+                                    data-type="infant"
+                                    data-action="plus"
+                                >
+                                    +
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="class-select">
+
+                            <label>Travel Class</label>
+
+                            <select id="travelClass">
+
+                                <option value="Economy">
+                                    Economy
+                                </option>
+
+                                <option value="Premium Economy">
+                                    Premium Economy
+                                </option>
+
+                                <option value="Business">
+                                    Business
+                                </option>
+
+                                <option value="First Class">
+                                    First Class
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                        <button
+                            class="done-btn"
+                            id="passengerDone"
+                        >
+                            Done
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SEARCH -->
+
+                <button
+                    class="search-btn"
+                    id="searchBtn"
+                >
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    Search Flights
+                </button>
+
+            </div>
+
+
+            <!-- Search options -->
+
+            <div class="search-options">
+
+                <label>
+                    <input type="checkbox" id="directFlight">
+                    Direct flights only
+                </label>
+
+                <label>
+                    <input type="checkbox">
+                    Add nearby airports
+                </label>
+
+                <label>
+                    <input type="checkbox">
+                    Flexible dates
+                </label>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= QUICK SERVICES ================= -->
+
+<section class="services-section" id="services">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div>
+                <span class="section-label">
+                    TRAVEL SERVICES
+                </span>
+
+                <h2>
+                    Everything you need for your journey
+                </h2>
+            </div>
+
+            <p>
+                Plan, book and manage your complete trip from one place.
+            </p>
+
+        </div>
+
+
+        <div class="service-grid">
+
+            <div class="service-card active-service">
+
+                <div class="service-icon">
+                    <i class="fa-solid fa-plane"></i>
+                </div>
+
+                <h3>Flights</h3>
+
+                <p>
+                    Domestic & international flights
+                </p>
+
+                <a href="#flights">
+                    Book Now
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    <i class="fa-solid fa-hotel"></i>
+                </div>
+
+                <h3>Hotels</h3>
+
+                <p>
+                    Hotels at amazing prices
+                </p>
+
+                <a href="#hotels">
+                    Explore
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    <i class="fa-solid fa-bus"></i>
+                </div>
+
+                <h3>Bus</h3>
+
+                <p>
+                    Comfortable bus journeys
+                </p>
+
+                <a href="#">
+                    Search Bus
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    <i class="fa-solid fa-train"></i>
+                </div>
+
+                <h3>Trains</h3>
+
+                <p>
+                    Book train tickets easily
+                </p>
+
+                <a href="#">
+                    Book Train
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    <i class="fa-solid fa-car"></i>
+                </div>
+
+                <h3>Cabs</h3>
+
+                <p>
+                    Airport & local cabs
+                </p>
+
+                <a href="#">
+                    Book Cab
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    <i class="fa-solid fa-umbrella-beach"></i>
+                </div>
+
+                <h3>Holidays</h3>
+
+                <p>
+                    Customized holiday packages
+                </p>
+
+                <a href="#packages">
+                    View Packages
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= POPULAR DESTINATIONS ================= -->
+
+<section class="destinations-section">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div>
+                <span class="section-label">
+                    EXPLORE INDIA
+                </span>
+
+                <h2>
+                    Popular destinations
+                </h2>
+            </div>
+
+            <button class="outline-btn">
+                View All
+            </button>
+
+        </div>
+
+
+        <div class="destination-grid">
+
+            <div
+                class="destination-card"
+                data-from="Delhi"
+                data-to="Goa"
+            >
+
+                <div class="destination-image goa">
+
+                    <span class="destination-tag">
+                        Beach Escape
+                    </span>
+
+                    <div class="destination-content">
+
+                        <h3>Goa</h3>
+
+                        <p>
+                            Sun • Sand • Sea
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="destination-card"
+                data-from="Delhi"
+                data-to="Mumbai"
+            >
+
+                <div class="destination-image mumbai">
+
+                    <span class="destination-tag">
+                        City Break
+                    </span>
+
+                    <div class="destination-content">
+
+                        <h3>Mumbai</h3>
+
+                        <p>
+                            City of Dreams
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="destination-card"
+                data-from="Delhi"
+                data-to="Dubai"
+            >
+
+                <div class="destination-image dubai">
+
+                    <span class="destination-tag">
+                        International
+                    </span>
+
+                    <div class="destination-content">
+
+                        <h3>Dubai</h3>
+
+                        <p>
+                            Luxury • Shopping • Adventure
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="destination-card"
+                data-from="Delhi"
+                data-to="Bengaluru"
+            >
+
+                <div class="destination-image bangalore">
+
+                    <span class="destination-tag">
+                        Weekend Trip
+                    </span>
+
+                    <div class="destination-content">
+
+                        <h3>Bengaluru</h3>
+
+                        <p>
+                            Technology & Nature
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= OFFERS ================= -->
+
+<section class="offers-section" id="offers">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="section-label">
+                    BEST DEALS
+                </span>
+
+                <h2>
+                    Exclusive travel offers
+                </h2>
+
+            </div>
+
+            <p>
+                Save more on your next adventure.
+            </p>
+
+        </div>
+
+
+        <div class="offer-grid">
+
+            <div class="offer-card offer-blue">
+
+                <div class="offer-info">
+
+                    <span>
+                        FLIGHTS
+                    </span>
+
+                    <h3>
+                        Flat ₹1,500 OFF
+                    </h3>
+
+                    <p>
+                        On domestic flight bookings
+                    </p>
+
+                    <button
+                        class="offer-btn"
+                        data-code="FLY1500"
+                    >
+                        Use Code: FLY1500
+                    </button>
+
+                </div>
+
+                <i class="fa-solid fa-plane offer-bg-icon"></i>
+
+            </div>
+
+
+            <div class="offer-card offer-purple">
+
+                <div class="offer-info">
+
+                    <span>
+                        HOTELS
+                    </span>
+
+                    <h3>
+                        Up to 40% OFF
+                    </h3>
+
+                    <p>
+                        Stay more, spend less
+                    </p>
+
+                    <button
+                        class="offer-btn"
+                        data-code="STAY40"
+                    >
+                        Use Code: STAY40
+                    </button>
+
+                </div>
+
+                <i class="fa-solid fa-hotel offer-bg-icon"></i>
+
+            </div>
+
+
+            <div class="offer-card offer-orange">
+
+                <div class="offer-info">
+
+                    <span>
+                        HOLIDAYS
+                    </span>
+
+                    <h3>
+                        Extra ₹3,000 OFF
+                    </h3>
+
+                    <p>
+                        On selected holiday packages
+                    </p>
+
+                    <button
+                        class="offer-btn"
+                        data-code="HOLIDAY3000"
+                    >
+                        Use Code: HOLIDAY3000
+                    </button>
+
+                </div>
+
+                <i class="fa-solid fa-umbrella-beach offer-bg-icon"></i>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= HOLIDAYS ================= -->
+
+<section class="packages-section" id="packages">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="section-label">
+                    HOLIDAY PACKAGES
+                </span>
+
+                <h2>
+                    Make memories, not itineraries
+                </h2>
+
+            </div>
+
+            <p>
+                Handpicked experiences for every kind of traveller.
+            </p>
+
+        </div>
+
+
+        <div class="package-grid">
+
+            <article class="package-card">
+
+                <div class="package-image manali">
+
+                    <span>
+                        5 Days / 4 Nights
+                    </span>
+
+                </div>
+
+                <div class="package-content">
+
+                    <div class="package-location">
+                        <i class="fa-solid fa-location-dot"></i>
+                        Himachal Pradesh
+                    </div>
+
+                    <h3>
+                        Magical Manali Escape
+                    </h3>
+
+                    <div class="package-rating">
+                        <span>
+                            ★ 4.8
+                        </span>
+
+                        <small>
+                            245 Reviews
+                        </small>
+                    </div>
+
+                    <div class="package-bottom">
+
+                        <div>
+                            Starting from
+                            <strong>₹14,999</strong>
+                        </div>
+
+                        <button>
+                            Explore
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <article class="package-card">
+
+                <div class="package-image kerala">
+
+                    <span>
+                        6 Days / 5 Nights
+                    </span>
+
+                </div>
+
+                <div class="package-content">
+
+                    <div class="package-location">
+                        <i class="fa-solid fa-location-dot"></i>
+                        Kerala
+                    </div>
+
+                    <h3>
+                        Kerala Backwaters
+                    </h3>
+
+                    <div class="package-rating">
+                        <span>
+                            ★ 4.9
+                        </span>
+
+                        <small>
+                            318 Reviews
+                        </small>
+                    </div>
+
+                    <div class="package-bottom">
+
+                        <div>
+                            Starting from
+                            <strong>₹18,499</strong>
+                        </div>
+
+                        <button>
+                            Explore
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <article class="package-card">
+
+                <div class="package-image rajasthan">
+
+                    <span>
+                        5 Days / 4 Nights
+                    </span>
+
+                </div>
+
+                <div class="package-content">
+
+                    <div class="package-location">
+                        <i class="fa-solid fa-location-dot"></i>
+                        Rajasthan
+                    </div>
+
+                    <h3>
+                        Royal Rajasthan
+                    </h3>
+
+                    <div class="package-rating">
+                        <span>
+                            ★ 4.7
+                        </span>
+
+                        <small>
+                            189 Reviews
+                        </small>
+                    </div>
+
+                    <div class="package-bottom">
+
+                        <div>
+                            Starting from
+                            <strong>₹16,999</strong>
+                        </div>
+
+                        <button>
+                            Explore
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= WHY US ================= -->
+
+<section class="why-section">
+
+    <div class="container">
+
+        <div class="why-content">
+
+            <div class="why-text">
+
+                <span class="section-label">
+                    WHY TRAVELGO
+                </span>
+
+                <h2>
+                    Travel smarter.
+                    <br>
+                    Travel happier.
+                </h2>
+
+                <p>
+                    From searching for the perfect flight to reaching
+                    your destination, we make every step simple,
+                    transparent and stress-free.
+                </p>
+
+                <button class="primary-btn">
+                    Start Exploring
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+
+            </div>
+
+
+            <div class="benefit-grid">
+
+                <div class="benefit-card">
+
+                    <i class="fa-solid fa-shield-halved"></i>
+
+                    <h3>
+                        Secure Booking
+                    </h3>
+
+                    <p>
+                        Your payments and personal information stay protected.
+                    </p>
+
+                </div>
+
+
+                <div class="benefit-card">
+
+                    <i class="fa-solid fa-indian-rupee-sign"></i>
+
+                    <h3>
+                        Best Prices
+                    </h3>
+
+                    <p>
+                        Compare prices and find great travel deals.
+                    </p>
+
+                </div>
+
+
+                <div class="benefit-card">
+
+                    <i class="fa-solid fa-headset"></i>
+
+                    <h3>
+                        24/7 Support
+                    </h3>
+
+                    <p>
+                        Our travel experts are always ready to help.
+                    </p>
+
+                </div>
+
+
+                <div class="benefit-card">
+
+                    <i class="fa-solid fa-bolt"></i>
+
+                    <h3>
+                        Quick Booking
+                    </h3>
+
+                    <p>
+                        Search and book your trip in just a few clicks.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= NEWSLETTER ================= -->
+
+<section class="newsletter-section">
+
+    <div class="container">
+
+        <div class="newsletter">
+
+            <div class="newsletter-icon">
+                <i class="fa-solid fa-paper-plane"></i>
+            </div>
+
+            <div class="newsletter-text">
+
+                <h2>
+                    Get the best travel deals
+                </h2>
+
+                <p>
+                    Subscribe and receive exclusive offers directly in your inbox.
+                </p>
+
+            </div>
+
+            <form id="newsletterForm">
+
+                <input
+                    type="email"
+                    id="emailInput"
+                    placeholder="Enter your email address"
+                    required
+                >
+
+                <button type="submit">
+                    Subscribe
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <div class="footer-about">
+
+                <a href="#" class="logo footer-logo">
+
+                    <span class="logo-icon">
+                        <i class="fa-solid fa-plane-departure"></i>
+                    </span>
+
+                    <span>
+                        Travel<span>Go</span>
+                    </span>
+
+                </a>
+
+                <p>
+                    Your trusted travel companion for flights,
+                    hotels, holidays and everything in between.
+                </p>
+
+                <div class="social-links">
+
+                    <a href="#">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>Company</h4>
+
+                <a href="#">About Us</a>
+                <a href="#">Careers</a>
+                <a href="#">Contact</a>
+                <a href="#">Press</a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>Support</h4>
+
+                <a href="#">Help Center</a>
+                <a href="#">Cancellation</a>
+                <a href="#">Refund Policy</a>
+                <a href="#">Terms & Conditions</a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>Popular</h4>
+
+                <a href="#">Delhi Flights</a>
+                <a href="#">Mumbai Flights</a>
+                <a href="#">Goa Holidays</a>
+                <a href="#">Dubai Packages</a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 TravelGo. All rights reserved.
+            </span>
+
+            <div>
+
+                <a href="#">
+                    Privacy Policy
+                </a>
+
+                <a href="#">
+                    Terms
+                </a>
+
+                <a href="#">
+                    Cookie Policy
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- ================= LOGIN MODAL ================= -->
+
+<div class="modal" id="loginModal">
+
+    <div class="modal-box">
+
+        <button
+            class="close-modal"
+            id="closeModal"
+        >
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div class="modal-logo">
+            <i class="fa-solid fa-plane-departure"></i>
+        </div>
+
+        <h2>
+            Welcome to TravelGo
+        </h2>
+
+        <p>
+            Login to manage your bookings and trips.
+        </p>
+
+        <form id="loginForm">
+
+            <div class="modal-input">
+
+                <i class="fa-regular fa-envelope"></i>
+
+                <input
+                    type="email"
+                    placeholder="Email address"
+                    required
+                >
+
+            </div>
+
+            <div class="modal-input">
+
+                <i class="fa-solid fa-lock"></i>
+
+                <input
+                    type="password"
+                    placeholder="Password"
+                    required
+                >
+
+            </div>
+
+            <button type="submit" class="login-submit">
+                Login
+            </button>
+
+        </form>
+
+        <p class="signup-text">
+            Don't have an account?
+            <a href="#">Create Account</a>
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- ================= SEARCH RESULT MODAL ================= -->
+
+<div class="modal" id="searchModal">
+
+    <div class="search-result-box">
+
+        <button
+            class="close-modal"
+            id="closeSearchModal"
+        >
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div class="result-header">
+
+            <div>
+
+                <span class="section-label">
+                    FLIGHT SEARCH
+                </span>
+
+                <h2>
+                    Available Flights
+                </h2>
+
+            </div>
+
+            <div class="route-summary" id="routeSummary">
+                DEL → BOM
+            </div>
+
+        </div>
+
+
+        <div class="result-info" id="resultInfo">
+            Searching flights...
+        </div>
+
+
+        <div class="flight-results">
+
+            <div class="flight-card">
+
+                <div class="airline">
+
+                    <div class="airline-logo">
+                        <i class="fa-solid fa-plane"></i>
+                    </div>
+
+                    <div>
+                        <strong>TravelGo Air</strong>
+                        <small>TG 101</small>
+                    </div>
+
+                </div>
+
+
+                <div class="flight-time">
+
+                    <strong>06:30</strong>
+                    <span id="resultFromCode">DEL</span>
+
+                </div>
+
+
+                <div class="flight-duration">
+
+                    <span>2h 10m</span>
+
+                    <div>
+                        <i class="fa-solid fa-plane"></i>
+                    </div>
+
+                    <small>Non-stop</small>
+
+                </div>
+
+
+                <div class="flight-time">
+
+                    <strong>08:40</strong>
+                    <span id="resultToCode">BOM</span>
+
+                </div>
+
+
+                <div class="flight-price">
+
+                    <strong>₹4,899</strong>
+
+                    <small>per adult</small>
+
+                    <button>
+                        Select
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="flight-card">
+
+                <div class="airline">
+
+                    <div class="airline-logo">
+                        <i class="fa-solid fa-plane"></i>
+                    </div>
+
+                    <div>
+                        <strong>Sky India</strong>
+                        <small>SI 452</small>
+                    </div>
+
+                </div>
+
+
+                <div class="flight-time">
+
+                    <strong>09:15</strong>
+                    <span id="resultFromCode2">DEL</span>
+
+                </div>
+
+
+                <div class="flight-duration">
+
+                    <span>2h 20m</span>
+
+                    <div>
+                        <i class="fa-solid fa-plane"></i>
+                    </div>
+
+                    <small>Non-stop</small>
+
+                </div>
+
+
+                <div class="flight-time">
+
+                    <strong>11:35</strong>
+                    <span id="resultToCode2">BOM</span>
+
+                </div>
+
+
+                <div class="flight-price">
+
+                    <strong>₹5,299</strong>
+
+                    <small>per adult</small>
+
+                    <button>
+                        Select
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="flight-card">
+
+                <div class="airline">
+
+                    <div class="airline-logo">
+                        <i class="fa-solid fa-plane"></i>
+                    </div>
+
+                    <div>
+                        <strong>Fly Express</strong>
+                        <small>FE 786</small>
+                    </div>
+
+                </div>
+
+
+                <div class="flight-time">
+
+                    <strong>14:20</strong>
+                    <span id="resultFromCode3">DEL</span>
+
+                </div>
+
+
+                <div class="flight-duration">
+
+                    <span>2h 15m</span>
+
+                    <div>
+                        <i class="fa-solid fa-plane"></i>
+                    </div>
+
+                    <small>Non-stop</small>
+
+                </div>
+
+
+                <div class="flight-time">
+
+                    <strong>16:35</strong>
+                    <span id="resultToCode3">BOM</span>
+
+                </div>
+
+
+                <div class="flight-price">
+
+                    <strong>₹5,699</strong>
+
+                    <small>per adult</small>
+
+                    <button>
+                        Select
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= TOAST ================= -->
+
+<div class="toast" id="toast">
+
+    <i class="fa-solid fa-circle-check"></i>
+
+    <span id="toastMessage">
+        Done
+    </span>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
